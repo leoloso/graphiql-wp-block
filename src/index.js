@@ -13,6 +13,11 @@ import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
 /**
+ * Application imports
+ */
+import EditBlock from "./EditBlock.js"
+
+/**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
@@ -63,16 +68,7 @@ registerBlockType( 'leoloso/graphiql', {
 	 *
 	 * @return {WPElement} Element to render.
 	 */
-	edit( { className } ) {
-		return (
-			<p className={ className }>
-				{ __(
-					'GraphiQL – hello from the editor!',
-					'leoloso'
-				) }
-			</p>
-		);
-	},
+	edit: EditBlock,
 
 	/**
 	 * The save function defines the way in which the different attributes should be combined
@@ -82,7 +78,7 @@ registerBlockType( 'leoloso/graphiql', {
 	 *
 	 * @return {WPElement} Element to render.
 	 */
-	save() {
+	save({ attributes }) {
 		return (
 			<p>
 				{ __(
