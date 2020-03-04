@@ -1,10 +1,14 @@
-# GraphiQL block
+# GraphiQL WordPress block
 
-Block for adding a GraphiQL client to query the GraphQL server
+WordPress block for adding a GraphiQL client, to query the GraphQL server
 
 ## Usage
 
-Coming soon...
+Initialize by running:
+
+```php
+(new \Leoloso\GraphiQLWPBlock\Block())->init();
+```
 
 ## Credits
 
