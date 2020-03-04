@@ -1,6 +1,6 @@
 {
     "name": "leoloso/block-graphiql",
-    "type": "wordpress-block",
+    "type": "wordpress-plugin",
     "description": "Block for adding a GraphiQL client to query the GraphQL server",
     "keywords": [
         "PoP",
