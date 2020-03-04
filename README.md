@@ -24,7 +24,14 @@ $ composer require leoloso/graphiql-wp-block dev-master
 Then, initialize by running:
 
 ```php
-(new \Leoloso\GraphiQLWPBlock\Block())->init();
+(new \Leoloso\GraphiQLWPBlock\Block($graphiQLURLPath))->init();
+```
+
+`$graphiQLURLPath` is a string containing the URL path to the block. From a plugin, it can be calculated like this:
+
+```php
+$graphiQLPath = 'vendor/leoloso/graphiql-wp-block';
+$graphiQLURLPath = \plugins_url($graphiQLPath, __FILE__);
 ```
 
 ## Credits

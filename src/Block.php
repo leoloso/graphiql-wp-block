@@ -3,6 +3,13 @@ namespace Leoloso\GraphiQLWPBlock;
 
 class Block {
 
+	private $urlPath;
+
+	public function __construct(string $urlPath)
+	{
+		$this->urlPath = \trailingslashit($urlPath);
+	}
+
     public function init(): void
     {
 		// Initialize the GraphiQL
@@ -25,11 +32,12 @@ class Block {
 				'You need to run `npm start` or `npm run build` for the "leoloso/graphiql" block first.'
 			);
 		}
+
 		$index_js     = 'build/index.js';
 		$script_asset = require( $script_asset_path );
 		\wp_register_script(
 			'leoloso-graphiql-block-editor',
-			plugins_url( $index_js, __FILE__ ),
+			$this->urlPath.$index_js,
 			$script_asset['dependencies'],
 			$script_asset['version']
 		);
@@ -37,7 +45,7 @@ class Block {
 		$editor_css = 'editor.css';
 		\wp_register_style(
 			'leoloso-graphiql-block-editor',
-			plugins_url( $editor_css, __FILE__ ),
+			$this->urlPath.$editor_css,
 			array(),
 			filemtime( "$dir/$editor_css" )
 		);
@@ -45,7 +53,7 @@ class Block {
 		$style_css = 'style.css';
 		\wp_register_style(
 			'leoloso-graphiql-block',
-			plugins_url( $style_css, __FILE__ ),
+			$this->urlPath.$style_css,
 			array(),
 			filemtime( "$dir/$style_css" )
 		);
