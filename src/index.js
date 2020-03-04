@@ -17,12 +17,12 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType( 'leoloso/block-graphiql', {
+registerBlockType( 'leoloso/graphiql', {
 	/**
 	 * This is the display title for your block, which can be translated with `i18n` functions.
 	 * The block inserter will show this name.
 	 */
-	title: __( 'GraphiQL block', 'leoloso' ),
+	title: __( 'GraphiQL', 'leoloso' ),
 
 	/**
 	 * This is a short description for your block, can be translated with `i18n` functions.
@@ -67,7 +67,7 @@ registerBlockType( 'leoloso/block-graphiql', {
 		return (
 			<p className={ className }>
 				{ __(
-					'GraphiQL block – hello from the editor!',
+					'GraphiQL – hello from the editor!',
 					'leoloso'
 				) }
 			</p>
@@ -86,7 +86,7 @@ registerBlockType( 'leoloso/block-graphiql', {
 		return (
 			<p>
 				{ __(
-					'GraphiQL block – hello from the saved content!',
+					'GraphiQL – hello from the saved content!',
 					'leoloso'
 				) }
 			</p>
