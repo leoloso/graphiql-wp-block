@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:     GraphiQL block
- * Description:     Add a GraphiQL client to query the GraphQL server
+ * Description:     Block for adding a GraphiQL client to query the GraphQL server
  * Version:         0.1.0
  * Author:          Leonardo Losoviz
- * License:         GPL-2.0-or-later
+ * License:         MIT
  * Text Domain:     leoloso
  *
  * @package         leoloso

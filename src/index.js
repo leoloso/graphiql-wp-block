@@ -29,7 +29,7 @@ registerBlockType( 'leoloso/block-graphiql', {
 	 * It will be shown in the Block Tab in the Settings Sidebar.
 	 */
 	description: __(
-		'Add a GraphiQL client to query the GraphQL server.',
+		'Block for adding a GraphiQL client to query the GraphQL server.',
 		'leoloso'
 	),
 

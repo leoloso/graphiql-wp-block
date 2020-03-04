@@ -25,3 +25,7 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Composer
+composer.lock
+vendor/
