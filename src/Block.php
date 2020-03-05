@@ -36,9 +36,12 @@ class Block {
         // Enable Hot Reloading! Only for DEV
         // By either constant definition, or environment variable
         if (
-            (defined('ENABLE_HOT_RELOADING_FOR_DEV') && ENABLE_HOT_RELOADING_FOR_DEV) ||
-            (isset($_ENV['ENABLE_HOT_RELOADING_FOR_DEV']) && $_ENV['ENABLE_HOT_RELOADING_FOR_DEV'])
-            ) {
+            \is_admin() &&
+            (
+                (defined('ENABLE_HOT_RELOADING_FOR_DEV') && ENABLE_HOT_RELOADING_FOR_DEV) ||
+                (isset($_ENV['ENABLE_HOT_RELOADING_FOR_DEV']) && $_ENV['ENABLE_HOT_RELOADING_FOR_DEV'])
+            )
+        ) {
             \wp_register_script(
                 'livereload',
                 'http://localhost:35729/livereload.js'
