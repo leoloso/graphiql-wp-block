@@ -1,40 +1,23 @@
 import React, { Component } from "react";
+import GraphiQL from 'graphiql';
+import fetch from 'isomorphic-fetch';
 import { __ } from '@wordpress/i18n';
 
 class EditBlock extends Component {
 
-  constructor(props) {
-    super(props);
-    this.setAttributes = props.setAttributes;
-    this.isSelected = props.isSelected;
-    this.className = props.className;
-	this.attributes = props.attributes;
-  }
+    graphQLFetcher(graphQLParams) {
+        return fetch(window.location.origin + '/graphql', {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(graphQLParams),
+        }).then(response => response.json());
+    }
 
-  // Toggle a setting when the user clicks the button
-  toggleSetting() {
-    this.setAttributes({ mySetting: ! mySetting });
-  }
 
   render() {
-    // Simplify access to attributes
-	const { content, mySetting } = this.attributes;
 	return (
-		<p className={ this.className }>
-			{ __(
-				'GraphiQL – hello from the editor, sarongasonga!',
-				'leoloso'
-			) }
-		</p>
+		<GraphiQL fetcher={ this.graphQLFetcher } />
 	);
-    // return (
-    //   <div className={ this.className }>
-    //     { content }
-    //     { this.isSelected &&
-    //       <button onClick={() => this.toggleSetting }>Toggle setting</button>
-    //     }
-    //   </div>
-    // );
   }
 }
 
