@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import GraphiQL from 'graphiql';
 import fetch from 'isomorphic-fetch';
 import 'graphiql/graphiql.css';
-import { __ } from '@wordpress/i18n';
+import './style.scss';
 
 class EditBlock extends Component {
+
+    constructor(props) {
+        super(props);
+        this.className = props.className
+    }
 
     graphQLFetcher(graphQLParams) {
         return fetch(window.location.origin + '/api/graphql', {
@@ -16,10 +21,11 @@ class EditBlock extends Component {
 
     render() {
         return (
-            <GraphiQL
-                style={{ height: '80vh' }}
-                fetcher={ this.graphQLFetcher }
-            />
+            <div className = {this.className}>
+                <GraphiQL
+                    fetcher={ this.graphQLFetcher }
+                />
+            </div>
         );
     }
 }
