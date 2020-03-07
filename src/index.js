@@ -50,12 +50,20 @@ registerBlockType( 'leoloso/graphiql', {
 	 */
 	icon: 'smiley',
 
+	attributes: {
+		align: {
+			type: 'string',
+			default: 'wide'
+		},
+	},
+
 	/**
 	 * Optional block extended support features.
 	 */
 	supports: {
 		// Removes support for an HTML mode.
 		html: false,
+		align: ['center', 'wide', 'full']
 	},
 
 	/**
