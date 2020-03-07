@@ -15,7 +15,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Application imports
  */
-import EditBlock from "./EditBlock.js"
+import EditBlock from './EditBlock.js';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -78,14 +78,16 @@ registerBlockType( 'leoloso/graphiql', {
 	 *
 	 * @return {WPElement} Element to render.
 	 */
-	save({ attributes }) {
+	save() {
 		return (
-			<p>
-				{ __(
-					'GraphiQL – hello from the saved content!',
-					'leoloso'
-				) }
-			</p>
+			<pre>
+				<code className="language-graphql">
+					{ __(
+						'GraphiQL – hello from the saved content!',
+						'leoloso'
+					) }
+				</code>
+			</pre>
 		);
 	},
 } );
