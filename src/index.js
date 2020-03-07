@@ -50,6 +50,9 @@ registerBlockType( 'leoloso/graphiql', {
 	 */
 	icon: 'smiley',
 
+	/**
+	 * Block default attributes.
+	 */
 	attributes: {
 		align: {
 			type: 'string',
@@ -61,9 +64,18 @@ registerBlockType( 'leoloso/graphiql', {
 	 * Optional block extended support features.
 	 */
 	supports: {
-		// Removes support for an HTML mode.
+		// Alignment options
+		align: ['center', 'wide', 'full'],
+		// Remove the support for the custom className.
+		customClassName: false,
+		// Remove support for an HTML mode.
 		html: false,
-		align: ['center', 'wide', 'full']
+		// // Only insert block through a template
+		// inserter: false,
+		// // Only one per CPT is needed
+		// multiple: false,
+		// // Don't allow the block to be converted into a reusable block.
+		// reusable: false
 	},
 
 	/**
