@@ -88,7 +88,7 @@ class Block {
 	function renderBlock($attributes): string
 	{
 		return sprintf(
-			'<pre class=""><code class="language-graphql">%s</code></pre>',
+			'<pre class="wp-block-leoloso-graphiql"><code class="language-graphql">%s</code></pre>',
 			$attributes['query']
 		);
 	}
