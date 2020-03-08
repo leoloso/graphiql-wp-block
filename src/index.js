@@ -54,12 +54,10 @@ registerBlockType( 'leoloso/graphiql', {
 	 * Block default attributes.
 	 */
 	attributes: {
-		attributes: {
-			content: {
-				type: 'string',
-				source: 'text',
-				selector: 'pre > code',
-			},
+		content: {
+			type: 'string',
+			source: 'text',
+			selector: 'pre > code',
 		},
 		// Make it wide alignment by default
 		align: {
