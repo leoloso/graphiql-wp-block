@@ -91,7 +91,7 @@ class Block {
 		if ($attributes['variables']) {
 			$variablesTitle = sprintf(
 				'<p><strong>%s</strong></p>',
-				__('Default variables:', 'graphql-by-pop')
+				__('Variables:', 'graphql-by-pop')
 			);
 			$variables = sprintf(
 				'<pre><code class="language-json">%s</code></pre>',
