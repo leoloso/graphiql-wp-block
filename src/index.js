@@ -54,7 +54,7 @@ registerBlockType( 'leoloso/graphiql', {
 	 * Block default attributes.
 	 */
 	attributes: {
-		content: {
+		query: {
 			type: 'string',
 			source: 'text',
 			selector: 'pre > code',
@@ -71,7 +71,7 @@ registerBlockType( 'leoloso/graphiql', {
 	 */
 	example: {
 		attributes: {
-			content: "query {\n  users(limit:3) {\n    id\n    name\n  }\n}"
+			query: "query {\n  users(limit:3) {\n    id\n    name\n  }\n}"
 		}
 	},
 
@@ -117,7 +117,7 @@ registerBlockType( 'leoloso/graphiql', {
 		return (
 			<pre>
 				<code className="language-graphql">
-					{ attributes.content }
+					{ attributes.query }
 				</code>
 			</pre>
 		);
