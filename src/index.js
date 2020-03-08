@@ -56,8 +56,6 @@ registerBlockType( 'leoloso/graphiql', {
 	attributes: {
 		query: {
 			type: 'string',
-			source: 'text',
-			selector: 'pre > code',
 		},
 		// Make it wide alignment by default
 		align: {
@@ -113,13 +111,7 @@ registerBlockType( 'leoloso/graphiql', {
 	 *
 	 * @return {WPElement} Element to render.
 	 */
-	save({ attributes }) {
-		return (
-			<pre>
-				<code className="language-graphql">
-					{ attributes.query }
-				</code>
-			</pre>
-		);
+	save() {
+		return null;
 	},
 } );

@@ -8,9 +8,6 @@ class EditBlock extends Component {
 	constructor( props ) {
 		super( props );
 		this.props = props;
-		// this.className = props.className;
-		// this.content = props.attributes.content;
-		// this.setAttributes = props.setAttributes;
 	}
 
 	graphQLFetcher( graphQLParams ) {
@@ -22,15 +19,15 @@ class EditBlock extends Component {
 	}
 
 	render() {
-		const { attributes: { content }, setAttributes, className } = this.props;
-		const onEditQuery = ( newContent ) => {
-            setAttributes( { content: newContent } );
+		const { attributes: { query }, setAttributes, className } = this.props;
+		const onEditQuery = ( newQuery ) => {
+            setAttributes( { query: newQuery } );
         };
 		return (
 			<div className={ className }>
 				<GraphiQL
 					fetcher={ this.graphQLFetcher }
-					query={ content }
+					query={ query }
 					onEditQuery={ onEditQuery }
 					defaultVariableEditorOpen={ false }
 					docExplorerOpen={ false }

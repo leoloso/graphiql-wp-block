@@ -80,7 +80,16 @@ class Block {
         \register_block_type( 'leoloso/graphiql', array(
             'editor_script' => 'leoloso-graphiql-block-editor',
             'editor_style'  => 'leoloso-graphiql-block-editor',
-            'style'         => 'leoloso-graphiql-block',
+			'style'         => 'leoloso-graphiql-block',
+			'render_callback' => [$this, 'renderBlock']
         ) );
-    }
+	}
+
+	function renderBlock($attributes): string
+	{
+		return sprintf(
+			'<pre class=""><code class="language-graphql">%s</code></pre>',
+			$attributes['query']
+		);
+	}
 }
