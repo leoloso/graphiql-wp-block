@@ -67,6 +67,15 @@ registerBlockType( 'leoloso/graphiql', {
 	},
 
 	/**
+	 * Example for the Inspector Help Panel
+	 */
+	example: {
+		attributes: {
+			content: "query {\n  users(limit:3) {\n    id\n    name\n  }\n}"
+		}
+	},
+
+	/**
 	 * Optional block extended support features.
 	 */
 	supports: {
