@@ -30,7 +30,6 @@ class EditBlock extends Component {
 					variables={ variables }
 					onEditQuery={ onEditQuery }
 					onEditVariables={ onEditVariables }
-					defaultVariableEditorOpen={ false }
 					docExplorerOpen={ false }
 				/>
 			</div>
