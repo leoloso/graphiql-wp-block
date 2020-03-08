@@ -32,6 +32,8 @@ class EditBlock extends Component {
 					fetcher={ this.graphQLFetcher }
 					query={ content }
 					onEditQuery={ onEditQuery }
+					defaultVariableEditorOpen={ false }
+					docExplorerOpen={ false }
 				/>
 			</div>
 		);
