@@ -87,9 +87,29 @@ class Block {
 
 	function renderBlock($attributes): string
 	{
+		$variablesTitle = $variables = '';
+		if ($attributes['variables']) {
+			$variablesTitle = sprintf(
+				'<p><strong>%s</strong></p>',
+				__('Variables:', 'graphql-by-pop')
+			);
+			$variables = sprintf(
+				'<pre><code class="language-json">%s</code></pre>',
+				$attributes['variables']
+			);
+		}
 		return sprintf(
-			'<pre class="wp-block-leoloso-graphiql"><code class="language-graphql">%s</code></pre>',
-			$attributes['query']
+			'<div class="wp-block-leoloso-graphiql">%s%s%s%s</div>',
+			sprintf(
+				'<p><strong>%s</strong></p>',
+				__('GraphQL Query:', 'graphql-by-pop')
+			),
+			sprintf(
+				'<pre><code class="language-graphql">%s</code></pre>',
+				$attributes['query']
+			),
+			$variablesTitle,
+			$variables
 		);
 	}
 }
