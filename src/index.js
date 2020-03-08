@@ -54,6 +54,14 @@ registerBlockType( 'leoloso/graphiql', {
 	 * Block default attributes.
 	 */
 	attributes: {
+		attributes: {
+			content: {
+				type: 'array',
+				source: 'children',
+				selector: 'pre > code',
+			},
+		},
+		// Make it wide alignment by default
 		align: {
 			type: 'string',
 			default: 'wide'
@@ -98,14 +106,11 @@ registerBlockType( 'leoloso/graphiql', {
 	 *
 	 * @return {WPElement} Element to render.
 	 */
-	save() {
+	save({ attributes }) {
 		return (
 			<pre>
 				<code className="language-graphql">
-					{ __(
-						'GraphiQL – hello from the saved content!',
-						'leoloso'
-					) }
+					{ attributes.content }
 				</code>
 			</pre>
 		);

@@ -7,7 +7,10 @@ import './style.scss';
 class EditBlock extends Component {
 	constructor( props ) {
 		super( props );
-		this.className = props.className;
+		this.props = props;
+		// this.className = props.className;
+		// this.content = props.attributes.content;
+		// this.setAttributes = props.setAttributes;
 	}
 
 	graphQLFetcher( graphQLParams ) {
@@ -19,9 +22,17 @@ class EditBlock extends Component {
 	}
 
 	render() {
+		const { attributes: { content }, setAttributes, className } = this.props;
+		const onEditQuery = ( newContent ) => {
+            setAttributes( { content: newContent } );
+        };
 		return (
-			<div className={ this.className }>
-				<GraphiQL fetcher={ this.graphQLFetcher } />
+			<div className={ className }>
+				<GraphiQL
+					fetcher={ this.graphQLFetcher }
+					query={ content }
+					onEditQuery={ onEditQuery }
+				/>
 			</div>
 		);
 	}
