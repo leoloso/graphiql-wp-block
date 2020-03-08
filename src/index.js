@@ -56,8 +56,8 @@ registerBlockType( 'leoloso/graphiql', {
 	attributes: {
 		attributes: {
 			content: {
-				type: 'array',
-				source: 'children',
+				type: 'string',
+				source: 'text',
 				selector: 'pre > code',
 			},
 		},
