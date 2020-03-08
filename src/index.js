@@ -72,8 +72,7 @@ registerBlockType( 'leoloso/graphiql', {
 	 */
 	example: {
 		attributes: {
-			query: "query {\n  users(limit:3) {\n    id\n    name\n  }\n}",
-			variables: "{\n  \"limit\":3\n}"
+			query: "query {\n  posts(limit:3) {\n    id\n    title\n  }\n}"
 		}
 	},
 
