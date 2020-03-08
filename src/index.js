@@ -57,6 +57,9 @@ registerBlockType( 'leoloso/graphiql', {
 		query: {
 			type: 'string',
 		},
+		variables: {
+			type: 'string',
+		},
 		// Make it wide alignment by default
 		align: {
 			type: 'string',
@@ -69,7 +72,8 @@ registerBlockType( 'leoloso/graphiql', {
 	 */
 	example: {
 		attributes: {
-			query: "query {\n  users(limit:3) {\n    id\n    name\n  }\n}"
+			query: "query {\n  users(limit:3) {\n    id\n    name\n  }\n}",
+			variables: "{\n  \"limit\":3\n}"
 		}
 	},
 

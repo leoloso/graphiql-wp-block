@@ -19,16 +19,17 @@ class EditBlock extends Component {
 	}
 
 	render() {
-		const { attributes: { query }, setAttributes, className } = this.props;
-		const onEditQuery = ( newQuery ) => {
-            setAttributes( { query: newQuery } );
-        };
+		const { attributes: { query, variables }, setAttributes, className } = this.props;
+		const onEditQuery = newValue => setAttributes( { query: newValue } );
+		const onEditVariables = newValue => setAttributes( { variables: newValue } );
 		return (
 			<div className={ className }>
 				<GraphiQL
 					fetcher={ this.graphQLFetcher }
 					query={ query }
+					variables={ variables }
 					onEditQuery={ onEditQuery }
+					onEditVariables={ onEditVariables }
 					defaultVariableEditorOpen={ false }
 					docExplorerOpen={ false }
 				/>
