@@ -80,49 +80,8 @@ class Block {
         \register_block_type( 'leoloso/graphiql', array(
             'editor_script' => 'leoloso-graphiql-block-editor',
             'editor_style'  => 'leoloso-graphiql-block-editor',
-			'style'         => 'leoloso-graphiql-block',
-			'render_callback' => [$this, 'renderBlock']
+			'style'         => 'leoloso-graphiql-block'
         ) );
-	}
-
-	public function renderBlock($attributes): string
-	{
-		$content = '<div class="wp-block-leoloso-graphiql">';
-		$query = $attributes['query'];
-		$variables = $attributes['variables'];
-		if (true) {
-			$url = 'http://playground.localhost:8888/graphiql/';
-			$urlHasParams = strpos($url, '?') !== false;
-			// We need to reproduce the `encodeURIComponent` JavaScript function, because that's how the GraphiQL client adds the parameters to the URL
-			// Important! We can't use function `add_query_arg` because it re-encodes the URL!
-			// So build the URL manually
-			$url .= ($urlHasParams ? '&' : '?').'query='.$this->encodeURIComponent($query);
-			// Add variables parameter always (empty if no variables defined), so that GraphiQL doesn't use a cached one
-			$url .= '&variables='.($variables ? $this->encodeURIComponent($variables) : '');
-			$content .= sprintf(
-				'<p><a href="%s">%s</a></p>',
-				$url,
-				__('View query in GraphiQL', 'graphql-by-pop')
-			);
-		}
-		$content .= sprintf(
-			'<p><strong>%s</strong></p>',
-			__('GraphQL Query:', 'graphql-by-pop')
-		).sprintf(
-			'<pre><code class="language-graphql">%s</code></pre>',
-			$query
-		);
-		if ($variables) {
-			$content .= sprintf(
-				'<p><strong>%s</strong></p>',
-				__('Variables:', 'graphql-by-pop')
-			).sprintf(
-				'<pre><code class="language-json">%s</code></pre>',
-				$variables
-			);
-		}
-		$content .= '</div>';
-		return $content;
 	}
 
 	/**
